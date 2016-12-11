@@ -1,10 +1,11 @@
 ﻿---
 layout:     post
 title:      "Unable to lock JVM Memory: error=12,reason=Cannot allocate memory"
-subtitle:   ""
+subtitle:   "ElasticSearch"
 date:       2016-12-09 12:00:00
 author:     "Sean"
 header-img: "img/post-bg-android.jpg"
+catalog: true
 tags:
    - ElasticSearch
 ---
