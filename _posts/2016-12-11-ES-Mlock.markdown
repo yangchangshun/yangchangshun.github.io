@@ -1,0 +1,43 @@
+﻿---
+layout:     post
+title:      "Unable to lock JVM Memory: error=12,reason=Cannot allocate memory"
+subtitle:   ""
+date:       2016-12-09 12:00:00
+author:     "Sean"
+header-img: "img/post-bg-android.jpg"
+tags:
+   - ElasticSearch
+---
+# logError
+
+>[2016-12-09 20:51:13,972][WARN ][bootstrap                ] Unable to lock JVM Memory: error=12,reason=Cannot allocate memory
+[2016-12-09 20:51:13,972][WARN ][bootstrap                ] This can result in part of the JVM being swapped out.
+[2016-12-09 20:51:13,972][WARN ][bootstrap                ] Increase RLIMIT_MEMLOCK, soft limit: 65536, hard limit: 65536
+[2016-12-09 20:51:13,972][WARN ][bootstrap                ] These can be adjusted by modifying
+
+>/etc/security/limits.conf, for example:
+        # allow user 'elasticsearch' mlockall
+        elasticsearch soft memlock unlimited
+        elasticsearch hard memlock unlimited
+>
+
+## 解决办法
+> ### 首先修改启动脚本 
+*  
+ systemd:
+/usr/lib/systemd/system/elasticsearch.service set: LimitMEMLOCK=infinity
+
+> * SysV:
+/etc/sysconfig/elasticsearch set: MAX_LOCKED_MEMORY=unlimited
+
+>* Upstart:
+/etc/default/elasticsearch set: MAX_LOCKED_MEMORY=unlimited
+>
+> Then restart Elasticsearch.
+
+> ### 最后修改memlock
+  * 在limit 文件添加配置如下：
+ /etc/security/limits.conf 
+ elasticsearch soft memlock unlimited
+ elasticsearch hard memlock unlimited
+ 
