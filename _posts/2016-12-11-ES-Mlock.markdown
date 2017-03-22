@@ -1,4 +1,4 @@
-﻿---
+---
 layout:     post
 title:      "Unable to lock JVM Memory: error=12,reason=Cannot allocate memory"
 subtitle:   "ElasticSearch"
