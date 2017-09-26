@@ -12,7 +12,7 @@ tags:
 
 > ES在生产环境中到底分配多少内存，JVM Heap到底给分配多大?
 
-
+---
 ## 如何分配Heap？
 
 > * heap 不能超过32G （参数：ES_HEAP_SIZE）
