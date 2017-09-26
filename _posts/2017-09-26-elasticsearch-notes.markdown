@@ -186,15 +186,15 @@ PUT /my_index/_settings
 >   primaries 仅允许为主分片分配分片
 >   new_primaries 仅允许为新索引的主分片分配分片
 >   none 不为任何类型的分片分配分片
-> 当一个节点重启的时候，这些配置不会影响节点从本地恢复主分片。一个节点重启，这个节点上主分片对应的副本将立马变成主分片，但是前提是要满足 [index.recovery.initial_shards][link_id1]设置的值。 [参考][link_id3]
+> 当一个节点重启的时候，这些配置不会影响节点从本地恢复主分片。一个节点重启，这个节点上主分片对应的副本将立马变成主分片，但是前提是要满足 [index.recovery.initial_shards][link_id1]设置的值。
 
 [link_id1]: https://www.elastic.co/guide/en/elasticsearch/reference/2.3//index-modules.html#index.recovery.initial_shards "index.recovery.initial_shards"
 * *cluster.routing.allocation.cluster_concurrent_rebalance
-> 这个参数控制集群数据平衡分片的[并发数][link_id2]
+> 这个参数控制集群数据平衡分片的[并发数][link_id2]   [参考][link_id3]
 
 [link_id2]: https://www.elastic.co/guide/en/elasticsearch/reference/2.3/shards-allocation.html "cluster.routing.allocation.cluster_concurrent_rebalance"
 
-[link_id3] https://discuss.elastic.co/t/increasing-shard-relocation-speed/54009/6 "Increasing shard relocation speed"
+[link_id3]: https://discuss.elastic.co/t/increasing-shard-relocation-speed/54009/6 "Increasing shard relocation speed"
 
 * *cluster.routing.allocation.node_concurrent_recoveries*
 > 除了主分片恢复任务以外， 在一个节点上同时允许多少个副分片去恢复，1.6开始冷数据可用从本地恢复 (默认值：2)
